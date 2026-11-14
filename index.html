@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#151513">
+  <meta name="description" content="Explore a planned display of retro computers and consoles. Select an object in the RetroComp cabinet for its history and collection notes.">
+  <link rel="icon" href="./assets/mark.svg" type="image/svg+xml">
+  <link rel="preload" href="./assets/cabinet.jpg" as="image">
+  <link rel="preload" href="./assets/type/serif.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="./styles.css">
+  <title>The Retro Cabinet · RetroComp</title>
+</head>
+<body>
+  <svg class="symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="list" viewBox="0 0 24 24"><path d="M8 6h12M8 12h12M8 18h12"/><path d="M3 6h1M3 12h1M3 18h1"/></symbol>
+    <symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+    <symbol id="external" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12"/></symbol>
+    <symbol id="close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><path d="M12 2v5m0 10v5M2 12h5m10 0h5"/></symbol>
+  </svg>
+  <header class="masthead">
+    <a class="brand" href="./" aria-label="RetroComp"><img src="./assets/mark.svg" width="35" height="35" alt="">RetroComp</a>
+    <nav aria-label="Main navigation" id="main-nav">
+      <a href="#cabinet" class="nav-link current" data-ui="cabinetNav" aria-current="page">Cabinet</a>
+      <a href="#about" class="nav-link" data-ui="aboutNav">About</a>
+    </nav>
+    <div class="languages" role="group" aria-label="Language">
+      <button type="button" data-lang="en" lang="en" aria-label="English" aria-pressed="true">EN</button>
+      <span aria-hidden="true">/</span>
+      <button type="button" data-lang="ro" lang="ro" aria-label="Română" aria-pressed="false">RO</button>
+    </div>
+  </header>
+  <main class="gallery" id="cabinet">
+    <div class="introduction">
+      <p class="eyebrow"><span class="amber-rule"></span><span data-ui="kicker">Interactive exhibition</span></p>
+      <h1 id="title">The Retro<br><em>Cabinet<span>.</span></em></h1>
+      <p class="intro-copy" data-ui="introduction">A personal collection of home computers, game consoles and their modern revivals.</p>
+      <a class="index-button" href="#index"><svg class="icon"><use href="#list"/></svg><span data-ui="indexBtn">Object index</span><svg class="icon"><use href="#arrow"/></svg></a>
+    </div>
+    <div class="scene-window">
+      <div class="artboard">
+        <img class="cabinet-art" src="./assets/cabinet.jpg" width="1672" height="941" alt="Concept rendering of a black two-column cabinet with seven retro computing objects on warmly lit shelves." fetchpriority="high">
+        <div id="objects"></div>
+      </div>
+    </div>
+  </main>
+  <footer class="caption-bar">
+    <p class="caption"><span class="figure" data-ui="figure">Fig. 01</span><span class="caption-line"></span><span data-ui="caption">Proposed cabinet layout</span></p>
+    <p class="hint"><svg class="icon"><use href="#target"/></svg><span data-ui="hint">Select an object to explore</span></p>
+    <button class="marker-toggle" type="button" role="switch" aria-checked="true"><span data-ui="markers">Markers</span><span class="switch-track" aria-hidden="true"></span></button>
+  </footer>
+  <dialog id="panel" aria-labelledby="panel-title">
+    <div class="panel-top"><span class="eyebrow" id="panel-label"></span><button class="close-button" type="button" aria-label="Close"><svg class="icon"><use href="#close"/></svg></button></div>
+    <div id="panel-body"></div>
+  </dialog>
+  <noscript><p class="no-js">Enable JavaScript to select objects in the cabinet. Activați JavaScript pentru a explora exponatele.</p></noscript>
+  <script src="./catalog.js" defer></script>
+  <script src="./app.js" defer></script>
+</body>
+</html>
